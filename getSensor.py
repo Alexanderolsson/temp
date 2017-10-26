@@ -8,7 +8,7 @@ import datetime
 conn = MySQLdb.connect(host="localhost", 
   user="root",
   passwd="",
-  db="") #Ansluter till databas
+  db="temp_db") #Ansluter till databas
 curr = conn.cursor() #Variable för db cursor
 
 nowTime = (time.strftime("%y-%m-%d ") + time.strftime("%H:%M:%S")) #vaiable för tid exempel format 17-20-3 11:24:20 
