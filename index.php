@@ -3,18 +3,18 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "temp_db";
-// Create connection
+// Ansluter till databas
 $conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
+// Kollar ifall den lyckas anslutas
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
 $sql = "SELECT * FROM tempLog";
 $result = $conn->query($sql);
-
+//Loopar enbart om det är mer än 0 rader från sökningen
 if ($result->num_rows > 0) {
-    // output data of each row
+    //Loopar igenom resultaten från sökningen
     while($row = $result->fetch_assoc()) {
         echo "time: " . $row["datetime"]. " - temp: " . $row["temperature"]."<br>";
     }
